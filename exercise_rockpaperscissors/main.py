@@ -6,12 +6,15 @@ def lifes():
     lifes = 3
     if decisione_cpu == "The CPU choose 'Paper', you lose!":
         totalifes -= 1
+        print("You lose 1 life!")
     elif decisione_cpu == "The CPU choose 'Scissors', you lose!":
         totalifes -= 1
+        print("You lose 1 life!")
     elif decisione_cpu == "The CPU choose 'Rock', you lose!":
         totalifes -= 1
+        print("You lose 1 life")
 
-while lifes() >= 1:
+while lifes() > 1:
     decisione_giocatore = input("What you choose? Rock, Paper or scissors? ")
     decisione_cpu = rps[random.randint(0, 2)]
     if decisione_giocatore.lower() == "rock":
