@@ -45,10 +45,10 @@ while core_game == True:
                 print(f"You have {lifes} lives left")
     print("You have run out of lifes, game over")
     game_restart = input("Wanna play again? Y/N: ").lower()
-    if game_restart == "y":
+    if game_restart.lower() == "y":
         core_game = True
         lifes += 3
-    elif game_restart == "n":
+    elif game_restart.lower() == "n":
         core_game = False
         game_is_running = False
         print("See you next time!")
