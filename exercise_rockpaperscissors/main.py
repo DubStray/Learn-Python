@@ -3,7 +3,6 @@ print("Welcome to the Rock - Paper - Scissors game!\n")
 
 rps = ["Rock", "Paper", "Scissors"]
 lifes = 3
-game_is_running = True
 core_game = True
 
 while core_game == True:
@@ -48,8 +47,8 @@ while core_game == True:
     if game_restart.lower() == "y":
         core_game = True
         lifes += 3
+        print("\n")
     elif game_restart.lower() == "n":
         core_game = False
-        game_is_running = False
         print("See you next time!")
         break
