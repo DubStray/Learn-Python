@@ -7,8 +7,6 @@ lives = 6
 from hangman_art import logo
 print(logo)
 
-print(f'Psst, the word is {chosen_word}')
-
 display = []  # Si crea una lista vuota da riempire con i '_' grazie al for loop in range.
 for _ in range(word_lenght):
     display += '_'
