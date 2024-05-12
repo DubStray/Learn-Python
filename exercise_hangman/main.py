@@ -18,4 +18,4 @@ for position in range(0, len(chosen_word)):
     if letter == guess:
         display[position] = letter
 
-print('hello wolrd')
+print('hello world')
