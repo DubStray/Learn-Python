@@ -3,12 +3,13 @@ print("Welcome to the Rock - Paper - Scissors game!\n")
 
 rps = ["Rock", "Paper", "Scissors"]
 lifes = 3
-core_game = True
+core_game = True # Variabile Booleana per spegnere/accendere il gioco.
 
+# Si crea un ciclo while con core_game per indicare che il gioco è acceso
 while core_game == True:
-    while lifes > 0:
+    while lifes > 0: # Se le vite sono superiori a 0 il gioco continua.
         decisione_giocatore = input("What you choose? Rock, Paper or scissors? ")
-        decisione_cpu = rps[random.randint(0, 2)]
+        decisione_cpu = rps[random.randint(0, 2)] # Il computer sceglierà randomicamente dalla lista dall'item 0 al 2.
         if decisione_giocatore.lower() == "rock":
             if decisione_cpu == "Rock":
                 print("The CPU choose 'Rock', it's a draw!")
@@ -42,8 +43,8 @@ while core_game == True:
             else:
                 print("The CPU choose 'Scissors', it's a draw!")
                 print(f"You have {lifes} lives left")
-    print("You have run out of lifes, game over")
-    game_restart = input("Wanna play again? Y/N: ").lower()
+    print("You have run out of lifes, game over") # Se le vite scendono a 0 allora verrà printato questo.
+    game_restart = input("Wanna play again? Y/N: ").lower() # Da qui partirà il programma per poter restartare il gioco se l'user lo vorrà
     if game_restart.lower() == "y":
         core_game = True
         lifes += 3
