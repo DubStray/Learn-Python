@@ -4,35 +4,35 @@ print(logo)
 
 print("Welcome to the Blind Auction.")
 
-bids = {}
+bids = {}  # Dizionario vuoto che verrà riempito con le offerte degli utenti.
+bidding_finished = False # Variabile booleana per far terminare il ciclo.
 
-while True:
+def clean():
+    print("\n " * 100)
 
-    names = input("Type your name: ")
-    bid = (input("What's your bid? $"))
-    bids[names] = bid
-    other_users = input("There are other users who wants to bid?  Y/N  ")
+def finding_highest_bidder(bidding_record):
 
+    highest_bid = 0     # Si creano delle variabili vuote, di testo e numerico da riempire.
+    winner = ""
 
-    # Dictionary che prende istruzioni dagli input.
-    info_dict = {
-        "names": names, 
-        "bid": bid,
-    }
+    # Loop che itera tra i NOMI degli users e registra quello che attualmente sta vincendo.
+    for bidder in bidding_record:
+        bid_amount = bidding_record[bidder]
 
+        # Un codice che controlla se l'attuale offerta è maggiore rispetto a quella precedente.
+        # Se si, procedrà ad aggiornare la variabile highest_bid
+        if bid_amount > highest_bid:
+            highest_bid = bid_amount
+            winner = bidder
+    print(f"The Winner is {winner}, with a bid of ${highest_bid}!")
 
-    if other_users.lower() == "y":
-        user_info
-        def add_new_items(names, bid, other_users):
-            new_entry = {
-                "names": names, 
-                "bid": bid, 
-                "other_users": other_users
-            }
-        add_new_items(names, bid, other_users)
-
-    else:
-        user_info = False
-        highest_bidder = max(bids, key=bids.get)
-        highest_bid = bids[highest_bidder]
-        print(f"THe winner is {highest_bidder} with a bid of ${highest_bid}!")
+while not bidding_finished:
+    name = input("What's your name? ")
+    price = int(input("What's your bid? $"))
+    bids[name] = price
+    other_users = input("There are other users who wants to bid? Y/N  ").lower()
+    if other_users == "n":
+        bidding_finished = True
+        finding_highest_bidder(bids)
+    elif other_users == "y":
+        clean()
