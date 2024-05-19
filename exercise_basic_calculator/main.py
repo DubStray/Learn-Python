@@ -1,5 +1,4 @@
 from art import logo
-print(logo)
 
 def add(num1, num2):
     return num1 + num2
@@ -20,24 +19,29 @@ operations = {                      # Dictionary creato sfruttando i simboli con
     "/": divide                     # inserire i simboli per scegliere l'operatore.
 }
 
-num1 = int(input("What's the first number?: "))
-# For loop che itera attraverso il dictionary per printare tutta la lista di operatori disponibili
-# seguito poi dall'input con la quale l'utente interagirà.
-for symbol in operations:
-    print(symbol)
+def calculator():
+    print(logo)
 
-should_continue = True
+    num1 = float(input("What's the first number?: "))
+    # For loop che itera attraverso il dictionary per printare tutta la lista di operatori disponibili
+    # seguito poi dall'input con la quale l'utente interagirà.
+    for symbol in operations:
+        print(symbol)
 
-while should_continue:
-    operation_symbol = input("Pick an operation: ")
-    num2 = int(input("What's the next number?: "))
-    # Quella sotto è un variabile che prende i simboli nel dictionary e tramite i [] prende l'input richiesto.
-    calculation_function = operations[operation_symbol]
-    result = calculation_function(num1, num2) # POi tramite quest'altra variabile si va appunto a calcolare.
-    print(f"{num1} {operation_symbol} {num2} = {result}")
+    should_continue = True
 
-    should_continue_choice = input(f"Type 'y' to continue calculating {result}, or type 'n' to exit.: ").lower
-    if should_continue_choice == "y":
-        should_continue
-    else:
-        break
+    while should_continue:
+        operation_symbol = input("Pick an operation: ")
+        num2 = float(input("What's the next number?: "))
+        # Quella sotto è un variabile che prende i simboli nel dictionary e tramite i [] prende l'input richiesto.
+        calculation_function = operations[operation_symbol]
+        result = calculation_function(num1, num2) # Poi tramite quest'altra variabile si va appunto a calcolare.
+        print(f"{num1} {operation_symbol} {num2} = {result}")
+
+        if input(f"Type 'y' to continue calculating {result}, or type 'n' to to start a new calculation.: ") == "y":
+            num1 = result
+        else:
+            should_continue = False
+            calculator()
+
+calculator()
