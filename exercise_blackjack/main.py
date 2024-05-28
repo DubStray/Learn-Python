@@ -10,14 +10,26 @@ def deal_cards():
     return card
 
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
-#user_cards = []
-#computer_cards = []
 user_cards = []
-cpu_cards = []
+computer_cards = []
 
-#Hint 6: Create a function called calculate_score() that takes a List of cards as input 
-#and returns the score. 
+for _ in range(2):
+    user_cards.append(deal_cards())
+    computer_cards.append(deal_cards())
+
+#Hint 6: Create a function called calculate_score() that takes a List of cards as input and returns the score. 
 #Look up the sum() function to help you do this.
+def calculate_score():
+    user_score = sum(user_cards)
+    computer_score = sum(computer_cards)
+    
+    for card in user_cards and computer_cards:
+        if card == 11 and 10:
+            print("Blackjack! You win!")
+
+    print(f"Your score: [{user_score}]\nDealer score: [{computer_score}]")
+
+calculate_score()
 
 #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
 
