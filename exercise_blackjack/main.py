@@ -14,28 +14,41 @@ user_cards = []
 computer_cards = []
 
 for _ in range(2):
+    '''Loop per dealare 2 carte sia al'user sia al computer'''
     user_cards.append(deal_cards())
     computer_cards.append(deal_cards())
 
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input and returns the score. 
 #Look up the sum() function to help you do this.
 def calculate_score():
+    
     user_score = sum(user_cards)
     computer_score = sum(computer_cards)
     
-    for card in user_cards and computer_cards:
-        if card == 11 and 10:
-            print("Blackjack! You win!")
 
-    print(f"Your score: [{user_score}]\nDealer score: [{computer_score}]")
+    for num in user_cards:
+        if user_score > 21 and 11 in user_score:
+            user_cards.remove(11)
+            user_cards.append(1)
 
-calculate_score()
+    for card in user_cards:
+        if 11 in user_cards and 10 in user_cards:
+            return 0
+        
+    for card in computer_cards:
+        if 11 in computer_cards and 10 in computer_cards:
+            return 0
+
+
+    print(f"Your score: {user_cards} = [{user_score}]\nDealer score: {computer_cards} = [{computer_score}]")
 
 #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
 
 #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
+calculate_score()
+
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
 
