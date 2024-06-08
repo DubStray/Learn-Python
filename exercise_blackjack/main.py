@@ -4,7 +4,9 @@ from art import logo
 print(logo)
 
 def deal_cards():
+
     '''Prende una carta qualsiasi dal mazzo'''
+
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     card = random.choice(cards)
     return card
@@ -14,18 +16,21 @@ user_cards = []
 computer_cards = []
 
 for _ in range(2):
+
     '''Loop per dealare 2 carte sia al'user sia al computer'''
+
     user_cards.append(deal_cards())
     computer_cards.append(deal_cards())
 
 
 def calculate_score():
+
+    '''Funzione per calcolare la somma tra le due carte ed un controllo per il Blackjack'''
     
     user_score = sum(user_cards)
     computer_score = sum(computer_cards)
 
     blackjack = 0
-    
 
     for num in user_cards:
         if user_score > 21 and 11 in user_score:
@@ -45,5 +50,7 @@ def calculate_score():
         if 11 in computer_cards and 10 in computer_cards:
             return 0
 
+    text_display = print(f"Your cards: {user_cards} = {user_score}/nCPU cards: {computer_cards} = {computer_score}")
+    print(text_display)
 
 calculate_score()
