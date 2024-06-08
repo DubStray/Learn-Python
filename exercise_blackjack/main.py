@@ -50,7 +50,6 @@ def calculate_score():
         if 11 in computer_cards and 10 in computer_cards:
             return 0
 
-    text_display = print(f"Your cards: {user_cards} = {user_score}/nCPU cards: {computer_cards} = {computer_score}")
-    print(text_display)
+    print(f"Your cards: {user_cards} = [{user_score}]\nCPU cards: {computer_cards} = [{computer_score}]")
 
 calculate_score()
