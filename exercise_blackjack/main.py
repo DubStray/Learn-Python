@@ -7,6 +7,11 @@ print(logo)
 
 
 
+def clean():
+    print("\n " * 100)
+
+
+
 def deal_cards():
 
     '''Funzione che deala le carte.'''
@@ -96,4 +101,5 @@ def game_is_running():
 
 
 while input("Do you want to play a game of Blackjack? (Y/N)  ") == "Y":
+    clean()
     game_is_running()
