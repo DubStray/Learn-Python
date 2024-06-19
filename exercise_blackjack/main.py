@@ -1,11 +1,5 @@
 import random
-
-
-
 from art import logo
-print(logo)
-
-
 
 def clean():
     print("\n " * 100)
@@ -38,14 +32,16 @@ def calculate_score(cards):
 
 def compare(user_score, computer_score):
 
+    '''Funzione con lo scopo di comparare il risultato dell'user con quello del computer e vedere se si va oltre il 21'''
+
     if user_score > 21 and computer_score > 21:
         return "You went over! You lose!"
     
     if user_score == computer_score:
         return "It's a Draw!"
     elif computer_score == 0:
-        return "BLACKJACK FOR THE COMPUTER! YOU LOSE!"
-    elif user_score == 0:
+        return "BLACKJACK FOR THE COMPUTER! YOU LOSE!"         # Controlli if per comparare i risultati dell'utente
+    elif user_score == 0:                                      # con quelli del Computer.
         return "BLACKJACK FOR YOU! YOU WIN!"
     elif user_score > 21:
         return "You went over! You lose!"
@@ -100,6 +96,6 @@ def game_is_running():
                 print(compare(user_score, computer_score))
 
 
-while input("Do you want to play a game of Blackjack? (Y/N)  ") == "Y":
+while input("Do you want to play a game of Blackjack? (Y/N)  ") == "y":
     clean()
     game_is_running()
