@@ -62,6 +62,7 @@ def game_is_running():
     computer_cards = []
     is_game_over = False
 
+
     for i in range(2):
         user_cards.append(deal_cards())                            # For loop in range che usa deal_cards due volte
         computer_cards.append(deal_cards())                        # e con append aggiungo i risultati alla lista
@@ -79,7 +80,7 @@ def game_is_running():
         if user_score == 0 or computer_score == 0 or user_score > 21:
             is_game_over = True
         else:
-            user_take_card = input("Type 'y' to get another card, 'n' to pass: ")
+            user_take_card = input("Type 'y' to get another card, 'n' to pass: \n")
             
             if user_take_card == "y":
                 user_cards.append(deal_cards())
