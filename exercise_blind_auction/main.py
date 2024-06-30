@@ -8,7 +8,7 @@ bids = {}  # Dizionario vuoto che verrà riempito con le offerte degli utenti.
 bidding_finished = False # Variabile booleana per far terminare il ciclo.
 
 def clean():
-    print("\n " * 100)
+    print("\n " * 90)
 
 def finding_highest_bidder(bidding_record):
 
