@@ -4,23 +4,23 @@ print(logo)
 
 print("Welcome to the Blind Auction.")
 
-bids = {}  # Dizionario vuoto che verrà riempito con le offerte degli utenti.
-bidding_finished = False # Variabile booleana per far terminare il ciclo.
+bids = {}                                           # Dizionario vuoto che verrà riempito con le offerte degli utenti.
+bidding_finished = False                            # Variabile booleana per far terminare il ciclo.
 
 def clean():
     print("\n " * 90)
 
 def finding_highest_bidder(bidding_record):
 
-    highest_bid = 0     # Si creano delle variabili vuote, di testo e numerico da riempire.
+    highest_bid = 0                                 # Si creano delle variabili vuote, di testo e numerico da riempire.
     winner = ""
 
-    # Loop che itera tra i NOMI degli users e registra quello che attualmente sta vincendo.
+                                                    # Loop che itera tra i NOMI degli users e registra quello che attualmente sta vincendo.
     for bidder in bidding_record:
         bid_amount = bidding_record[bidder]
 
-        # Un codice che controlla se l'attuale offerta è maggiore rispetto a quella precedente.
-        # Se si, procedrà ad aggiornare la variabile highest_bid
+                                                    # Un codice che controlla se l'attuale offerta è maggiore rispetto a quella precedente.
+                                                    # Se si, procedrà ad aggiornare la variabile highest_bid
         if bid_amount > highest_bid:
             highest_bid = bid_amount
             winner = bidder
