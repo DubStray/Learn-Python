@@ -36,20 +36,23 @@ def play_game():
             lives -= 1
             print(f"You have {lives} guesses left!")
         else:
-            print(f"You win!")    
+            print(f"You win!")
+            is_game_over = True
 
         if lives == 0:
             print("GAME OVER")
-            replay = input("Do you want to play again? Y/N: ").lower()
-            
-            if replay == "n":
-                is_game_over = True
-            else:
-                is_game_over = False
-                if difficulty == "easy":
-                    lives = 10
-                if difficulty == "hard":
-                    lives = 5
+            break
+        
+    replay = input("Do you want to play again? Y/N: ").lower()
+        
+    if replay == "n":
+        is_game_over = True
+    else:
+        play_game()
+        if difficulty == "easy":
+            lives = 10
+        if difficulty == "hard":
+            lives = 5
                 
 
 play_game()
