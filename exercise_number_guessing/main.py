@@ -1,4 +1,5 @@
 import random
+from art import logo
 
 def choose_number():
     global randnumber
@@ -9,6 +10,7 @@ def play_game():
 
     is_game_over = False
     
+    print(logo)
     print("Welcome to the number guessing game!")
     difficulty = input("Choose the difficulty: Easy (10 guesses) or Hard (5 Guesses): ").lower()
 
