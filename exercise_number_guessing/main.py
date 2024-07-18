@@ -2,8 +2,7 @@ import random
 
 def choose_number():
     global randnumber
-    randnumber = random.randint(1, 100)  
-    print(randnumber) 
+    randnumber = random.randint(1, 100)   
 
 
 def play_game():
