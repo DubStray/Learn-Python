@@ -35,22 +35,22 @@ def compare(user_score, computer_score):
     '''Fa una comparison dei risultati con quelli del computer'''
 
     if user_score > 21 and computer_score > 21:
-        return "You went over, you lose!"
+        return "\nYou went over, you lose!"
     
     if user_score == computer_score:
-        return "It's a Draw!"
+        return "\nIt's a Draw!"
     elif computer_score == 0:                                                            # Funzione che controlo tutte le possibili casistiche per confrontare
-        return "BLACKJACK! COMPUTER WINS!"                                               # il risultato dell'utente con quello del computer e controllano se
+        return "\nBLACKJACK! COMPUTER WINS!"                                               # il risultato dell'utente con quello del computer e controllano se
     elif user_score == 0:                                                                # hanno un blackjack
-        return "BLACKJACK! YOU WIN!"
+        return "\nBLACKJACK! YOU WIN!"
     elif user_score > 21:
-        return "You went over! You lose!"
+        return "\nYou went over! You lose!"
     elif computer_score > 21:
-        return "Computer went over! You win!"
+        return "\nComputer went over! You win!"
     elif user_score > computer_score:
-        return "You win!"
+        return "\nYou win!"
     else:
-        return "You lose!"
+        return "\nYou lose!"
 
 
 
@@ -71,13 +71,14 @@ def play_game():
         user_score = calculate_score(user_cards)                                         # While loop in negativo per calcolare lo score delel carte
         computer_score = calculate_score(computer_cards)
         
-        print(f"Your cards: {user_cards} = [{user_score}]")                              # Printa i risultati sul display
-        print(f"Computer's first card: {computer_cards[0]}")                             # {computer_cards[0]} mostra solo la prima carta a causa delle regole del BJ
+        print(f"    Your cards: {user_cards} = [{user_score}]")                              # Printa i risultati sul display
+        print(f"    Computer's first card: [{computer_cards[0]}]")                             # {computer_cards[0]} mostra solo la prima carta a causa delle regole del BJ
         if user_score == 0 or computer_score == 0 or user_score > 21:                    # Controlo if per far stoppare il gioco se CPU o Player hanno il BJ o se il Player
             is_game_over = True                                                          # va oltre il 21
         else:
-            user_should_deal = input("Type 'y' to get another card, type 'n to pass: ")
+            user_should_deal = input("\nType 'y' to get another card, type 'n to pass: ")
             if user_should_deal == "y":                                                  # Altrimenti il Player puo' decidere se prendere un'altra carta o passare
+                print("\n")
                 user_cards.append(deal_card())
             else:
                 is_game_over = True
@@ -86,8 +87,8 @@ def play_game():
         computer_cards.append(deal_card())                                               # e' minore di 17 (!= significa: not equal)
         computer_score = calculate_score(computer_cards)
 
-    print(f"You final hand: {user_cards} = [{user_score}]")
-    print(f"Computer's final hand: {computer_cards} = [{computer_score}]")
+    print(f"    You final hand: {user_cards} = [{user_score}]")
+    print(f"    Computer's final hand: {computer_cards} = [{computer_score}]")
     print(compare(user_score, computer_score))
 
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
