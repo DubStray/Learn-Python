@@ -1,21 +1,35 @@
 import random
+
 from game_data import data
 from art import logo, vs
 
 def clear():
     print("\n" * 100)
 
-def choosing_item():                                            # Sceglie una "persona" casuale dal dizionario
+# Display art
+
+# Generate random item from game_data
+def generate_random_item():
     return random.choice(data)
 
-def adjust_item(item):
-    name = item("name")                                         # Il compito di questa funzione è quello di ra-
-    description = item("description")                           # ccogliere la "persona" casuale presa dal diz-
-    country = item("country")                                   # ionario e rendere la frase leggibile prenden-
-    return f"{name}, a {description}, from {country}"           # do solo i valori dalle Key
+# Format item data into a printable data
+def format_data(item):
+    name = item("name")
+    description = item("description")
+    country = item("country")
+    return f"{name}, a {description}, from {country}"
+ 
+# Ask the user for a guess
 
+# Check if user is correct
 
+# Make the game repeatable
+## If the user get it right the item from prosition B needs to move to position A
 
 def game():
     print(logo)
-    
+
+    score = 0
+    game_should_continue = True
+    item_A = generate_random_item()
+    item_B = generate_random_item()
