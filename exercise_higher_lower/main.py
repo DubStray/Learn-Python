@@ -6,25 +6,27 @@ from art import logo, vs
 def clear():
     print("\n" * 100)
 
-# Display art
 
-# Generate random item from game_data
 def generate_random_item():
+    '''Prende un item a caso da game_data'''
     return random.choice(data)
 
-# Format item data into a printable data
+
 def format_data(item):
-    name = item("name")
-    description = item("description")
-    country = item("country")
+    '''Rende "leggibile" il formato dell'item preso, quindi tramite le key (name, description, country) prende solo i valori'''
+    name = item["name"]
+    description = item["description"]
+    country = item["country"]
     return f"{name}, a {description}, from {country}"
  
-# Ask the user for a guess
 
-# Check if user is correct
+def check_answer(guess, a_followers, b_followers):
+    '''un controllo if per comparare la risposta dell'user a quella dell'item scelto casualmente'''
+    if a_followers > b_followers:
+        return guess == "a"
+    else:
+        return guess == "b"
 
-# Make the game repeatable
-## If the user get it right the item from prosition B needs to move to position A
 
 def game():
     print(logo)
@@ -33,3 +35,30 @@ def game():
     game_should_continue = True
     item_A = generate_random_item()
     item_B = generate_random_item()
+
+    while game_should_continue:                             
+        item_A = item_B
+        item_B = generate_random_item()
+
+        while item_A == item_B:
+            item_B = generate_random_item()
+
+        print(f"Compare A: {format_data(item_A)}.")
+        print(vs)
+        print(f"Against B: {format_data(item_B)}.")
+
+        guess = input("WHo has more follower? A or B?  ").lower()
+        a_follower_count = item_A["follower_count"]
+        b_follower_count = item_B["follower_count"]
+        is_correct = check_answer(guess, a_follower_count, b_follower_count)
+
+        clear()
+        print(logo)
+        if is_correct:
+            score += 1
+            print(f"You're right! Current score: {score}")
+        else:
+            game_should_continue = False
+            print(f"That's wrong: final score: {score}")
+
+game()
