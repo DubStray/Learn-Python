@@ -47,7 +47,7 @@ def game():
         print(vs)
         print(f"Against B: {format_data(item_B)}.")
 
-        guess = input("WHo has more follower? A or B?  ").lower()
+        guess = input("Who has more follower? A or B?  ").lower()
         a_follower_count = item_A["follower_count"]             # Segna (non a schermo) i follower count di ogni item per capire chi dei due
         b_follower_count = item_B["follower_count"]             # ha più follower
         is_correct = check_answer(guess, a_follower_count, b_follower_count)    # Farà un check della risposta tra l'input (guess) e i follower di ognuno (A e B)
