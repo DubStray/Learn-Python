@@ -54,7 +54,10 @@ def game():
 
         clear()
         print(logo)
+
         if is_correct:
+            if guess == "a":
+                item_B = item_A
             score += 1
             print(f"You're right! Current score: {score}")
         else:
