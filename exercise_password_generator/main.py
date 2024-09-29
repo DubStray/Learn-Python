@@ -15,15 +15,15 @@ nr_numbers = int(input("How many numbers would you like in your password? "))
 
 # Si crea una variabile con una lista vuota che si riempie in base agli input.
 password_list = []
-for i in range(1, nr_letters + 1):
+for i in range(0, nr_letters):
     random_l = random.choice(letters)
     password_list += random_l
 
-for i in range(1, nr_symbols + 1):
+for i in range(0, nr_symbols):
     random_s = random.choice(symbols)
     password_list += random_s
 
-for i in range(1, nr_numbers + 1):
+for i in range(0, nr_numbers):
     random_n = random.choice(numbers)
     password_list += random_n
 

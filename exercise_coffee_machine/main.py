@@ -25,43 +25,22 @@ MENU = {
     }
 }
 
+profit = 0
 resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
 }
 
-money = 0
+is_on = True
 
-def splash_screen():
-    '''Fa vedere la welcome page della macchinetta del caffè con tutte le opzioni disponibili'''
+while is_on:
+    choice = input("What would you like? (espresso - latte - cappuccino):  ")
 
-    print('''
-        Welcome to the coffee machine!
-        
-        ----MENU----
-        Espresso: 1.50$
-        Latte: 2.50$
-        Cappuccino: 3.00$
-        ------------
-        
-        Type 'report' to check the resources
-        Type 'off' to log out from the machine
-        ''')
-
-def show_report():
-    '''Opzione di report che permette di mostrare le resources disponibili della macchinetta'''
-
-    print("Resources: ")
-    for k in resources:
-        print(k)
-        print(resources[k])
-
-def main():
-    splash_screen()
-
-    user_choose = input("        Type here: ")
-    if user_choose.lower() == "report":
-        show_report()
-    if user_choose.lower() == "off":
-        # Rompere il loop
+    if choice == "off":
+        is_on = False 
+    if choice == "report":
+        print(f"Water: 100ml")
+        print(f"Milk: 50ml")
+        print(f"Coffee: 76g")
+        print(f"Money: $2.5")
