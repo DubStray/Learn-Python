@@ -35,7 +35,7 @@ while not end_of_game:
             print('You lose')
 
     # Utilizzato per chiudere il ciclo.
-    if '_' not in display:
+    if '_' not in display or guess == chosen_word:
         end_of_game = True
         print('You Win.')
 
