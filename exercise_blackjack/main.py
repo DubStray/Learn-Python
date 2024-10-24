@@ -72,7 +72,7 @@ def play_game():
         computer_score = calculate_score(computer_cards)
         
         print(f"    Your cards: {user_cards} = [{user_score}]")                              # Printa i risultati sul display
-        print(f"    Computer's first card: [{computer_cards[0]}]")                             # {computer_cards[0]} mostra solo la prima carta a causa delle regole del BJ
+        print(f"    Computer's first card: [{computer_cards[0]}]\n")                             # {computer_cards[0]} mostra solo la prima carta a causa delle regole del BJ
         if user_score == 0 or computer_score == 0 or user_score > 21:                    # Controlo if per far stoppare il gioco se CPU o Player hanno il BJ o se il Player
             is_game_over = True                                                          # va oltre il 21
         else:
